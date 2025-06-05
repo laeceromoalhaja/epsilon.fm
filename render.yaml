@@ -3,6 +3,7 @@ services:
     name: epsilon-fm
     env: python
     plan: free
+    pythonVersion: 3.12.3  # or latest available
     buildCommand: |
       cd backend
       poetry install
