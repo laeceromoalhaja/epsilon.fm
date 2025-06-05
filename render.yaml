@@ -1,7 +1,16 @@
 services:
   - type: web
-    name: admusic-api
+    name: epsilon-fm
     env: python
     plan: free
-    buildCommand: cd backend && pip install -r requirements.txt
-    startCommand: cd backend && uvicorn src.main:app --host=0.0.0.0 --port=10000
+    buildCommand: |
+      cd backend
+      poetry install
+    startCommand: |
+      cd backend
+      poetry run uvicorn src.main:app --host=0.0.0.0 --port=10000
+    envVars:
+      - key: SUPABASE_URL
+        value: https://vxihempvdjcfpejmqhbo.supabase.co
+      - key: SUPABASE_ANON_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4aWhlbXB2ZGpjZnBlam1xaGJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg4MzA1NDgsImV4cCI6MjA2NDQwNjU0OH0.naQOjhahITI3PLeR_VYxLSL_IZ82tpcrx4ePHkuJpl0
