@@ -11,6 +11,8 @@ services:
       cd backend
       poetry run uvicorn src.main:app --host=0.0.0.0 --port=10000
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
       - key: SUPABASE_URL
         value: https://vxihempvdjcfpejmqhbo.supabase.co
       - key: SUPABASE_ANON_KEY
