@@ -6,6 +6,8 @@ services:
     pythonVersion: 3.12.3  # or latest available
     buildCommand: |
       cd backend
+      pip install uvicorn[standard] # Install uvicorn
+      pip install -r backend/requirements.txt # Install other dependencies
       poetry install
     startCommand: |
       cd backend
